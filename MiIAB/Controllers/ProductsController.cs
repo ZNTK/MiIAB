@@ -13,12 +13,6 @@ namespace MiIAB.Controllers
     public class ProductsController : Controller
     {
         private MiIABContext db = new MiIABContext();
-        //do wstrzykiwania
-        private readonly IProductRepo _repo;
-        public ProductsController(IProductRepo repo)
-        {
-            _repo = repo;
-        }
 
         // GET: Products
         public ActionResult Index()

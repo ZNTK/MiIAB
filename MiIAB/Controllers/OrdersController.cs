@@ -7,20 +7,28 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MiIAB.Models;
+using System.Diagnostics;
+using MiIAB.Repo;
+using MiIAB.IRepo;
 
 namespace MiIAB.Controllers
 {
     public class OrdersController : Controller
     {
         private MiIABContext db = new MiIABContext();
-
+        //OrderRepo repo = new OrderRepo();
+        private readonly IOrderRepo _repo;
+        public OrdersController(IOrderRepo repo)//tu bylo IOrderRepo
+        {
+            _repo = repo;
+        }
         // GET: Orders
         public ActionResult Index()
         {
-            var order = db.Order.Include(o => o.Product);
+            var order = _repo.GetOrders();
             return View(order.ToList());
         }
-
+        
         // GET: Orders/Details/5
         public ActionResult Details(int? id)
         {
@@ -28,7 +36,7 @@ namespace MiIAB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Order.Find(id);
+            Order order = _repo.GetOrderById((int)id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -101,7 +109,7 @@ namespace MiIAB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Order.Find(id);
+            Order order = _repo.GetOrderById((int)id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -114,9 +122,14 @@ namespace MiIAB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Order order = db.Order.Find(id);
-            db.Order.Remove(order);
-            db.SaveChanges();
+            _repo.DeleteOrder(id);
+            try
+            {
+                _repo.SaveChanges();
+            }
+            catch
+            {
+            }            
             return RedirectToAction("Index");
         }
 
