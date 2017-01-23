@@ -69,3 +69,11 @@ C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\bin\Deb
 C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\obj\Debug\MiIAB.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\obj\Debug\MiIAB.Tests.dll
 C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\obj\Debug\MiIAB.Tests.pdb
+C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\bin\Debug\WebActivatorEx.dll
+C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\bin\Debug\Microsoft.Practices.Unity.Mvc.dll
+C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\bin\Debug\Microsoft.Practices.Unity.Mvc.xml
+C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Michał\Documents\Visual Studio 2015\Projects\MiIAB\MiIAB.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml

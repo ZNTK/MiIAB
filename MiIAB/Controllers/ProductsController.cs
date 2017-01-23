@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MiIAB.Models;
+using System.Web.Security;
 
 namespace MiIAB.Controllers
 {
@@ -122,6 +123,31 @@ namespace MiIAB.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult OrderProduct(int? id)
+        {
+            ViewBag.ProductId = id;
+            ViewBag.UserId = db.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
+            return View();
+        }
+
+        // POST: Orders/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult OrderProduct([Bind(Include = "Id,Date,Amount,UserId,ProductId")] Order order)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Order.Add(order);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.ProductId = new SelectList(db.Product, "Id", "Name", order.ProductId);
+            return View(order);
         }
     }
 }

@@ -10,6 +10,7 @@ namespace MiIAB.IRepo
     public interface IOrderRepo
     {
         IQueryable<Order> GetOrders();
+        IQueryable<Order> GetOrdersForUser(string name);
         Order GetOrderById(int id);
         void DeleteOrder(int id);
         void SaveChanges();

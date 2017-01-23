@@ -42,22 +42,22 @@ namespace MiIAB.Migrations
         {
             var store = new UserStore<User>(context);
             var manager = new UserManager<User>(store);
-            if (!context.Users.Any(u => u.UserName == "Admin"))
+            if (!context.Users.Any(u => u.UserName == "Admin@a.a"))
             {
                 var user = new User
                 {
-                    UserName = "Admin",
+                    UserName = "Admin@a.a",
                     Email = "zntklol@gmail.com",
                     EmailConfirmed = true
                 };
                 var adminresult = manager.Create(user, "12345678");
                 if (adminresult.Succeeded) manager.AddToRole(user.Id, "Admin");
             }
-            if (!context.Users.Any(u => u.UserName == "Customer"))
+            if (!context.Users.Any(u => u.UserName == "Customer@a.a"))
             {
                 var user = new User
                 {
-                    UserName = "Customer",
+                    UserName = "Customer@a.a",
                     Email = "zntklol@gmail.com",
                     EmailConfirmed = true
                 };

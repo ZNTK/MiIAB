@@ -38,5 +38,12 @@ namespace MiIAB.Repo
         {
             _db.SaveChanges();
         }
+
+        public IQueryable<Order> GetOrdersForUser(string name)
+        {
+            _db.Database.Log = message => Trace.WriteLine(message);
+            IQueryable<Order> orders = _db.Order.Where(x => x.User.Name == name);
+            return orders;
+        }
     }
 }

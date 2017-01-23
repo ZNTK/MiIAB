@@ -18,7 +18,7 @@ namespace MiIAB.Models
         public DateTime Date { get; set; }
         [Display(Name = "Ilość")]
         public int Amount { get; set; }
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public int ProductId { get; set; }
 
         public virtual User User { get; set; }

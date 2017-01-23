@@ -28,7 +28,13 @@ namespace MiIAB.Controllers
             var order = _repo.GetOrders();
             return View(order.ToList());
         }
-        
+
+        public ActionResult IndexForUser(string name)
+        {
+            var order = _repo.GetOrdersForUser(name);
+            return View(order.ToList());
+        }
+
         // GET: Orders/Details/5
         public ActionResult Details(int? id)
         {

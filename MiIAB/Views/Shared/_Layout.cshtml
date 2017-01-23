@@ -20,10 +20,29 @@
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav	navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                    
+                            <li>@Html.ActionLink("Lista	Zamowien", "Index", "Orders") </li>
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <li>@Html.ActionLink("Dodaj Zamowienie", "Create", "Orders")</li>
+                            }
+                        
+                    }
+                    @if (User.IsInRole("Customer"))
+                    {
+                        @Html.ActionLink("Lista Twoich Zamowien", "IndexForUser","Orders", new { name = User.Identity.Name },null)
+                    }
+                    
+                            <li>@Html.ActionLink("Lista	Produktów", "Index", "Products") </li>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <li>@Html.ActionLink("Dodaj Produkt", "Create", "Products")</li>
+                            }
+                        
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
